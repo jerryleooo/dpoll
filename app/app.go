@@ -83,6 +83,7 @@ import (
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 	tmjson "github.com/tendermint/tendermint/libs/json"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
+
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 	votermodule "github.com/cosmonaut/voter/x/voter"
 	votermodulekeeper "github.com/cosmonaut/voter/x/voter/keeper"
@@ -342,6 +343,7 @@ func New(
 		appCodec,
 		keys[votermoduletypes.StoreKey],
 		keys[votermoduletypes.MemStoreKey],
+		app.BankKeeper,
 	)
 	voterModule := votermodule.NewAppModule(appCodec, app.VoterKeeper)
 
